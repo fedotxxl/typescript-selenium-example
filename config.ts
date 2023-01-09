@@ -1,5 +1,3 @@
-const config = {
-  baseUrl: process.env.BASE_URL || 'http://dublin-ts.dev.fider.io:3000',
+export const config = {
+  baseUrl: process.env.BASE_URL || 'https://soholms.com',
 };
-
-export default config;

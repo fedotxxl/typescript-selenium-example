@@ -1,5 +1,5 @@
 import { WebElementPromise } from 'selenium-webdriver';
-import { WebComponent, Button, TextInput } from './';
+import { WebComponent, ButtonComp, TextInput } from './';
 
 class WebComponentEnsurer {
   constructor(private component: WebComponent) {
@@ -27,8 +27,8 @@ class WebComponentEnsurer {
 }
 
 class ButtonEnsurer extends WebComponentEnsurer {
-  protected button: Button;
-  constructor(button: Button) {
+  protected button: ButtonComp;
+  constructor(button: ButtonComp) {
     super(button);
     this.button = button;
   }
@@ -46,11 +46,11 @@ class TextInputEnsurer extends WebComponentEnsurer {
   }
 }
 
-export function ensure(component: Button): ButtonEnsurer;
+export function ensure(component: ButtonComp): ButtonEnsurer;
 export function ensure(component: TextInput): TextInputEnsurer;
 export function ensure(component: WebComponent): WebComponentEnsurer;
-export function ensure(component: WebComponent | Button): any {
-    if (component instanceof Button) {
+export function ensure(component: WebComponent | ButtonComp): any {
+    if (component instanceof ButtonComp) {
         return new ButtonEnsurer(component);
     } else if (component instanceof WebComponent) {
         return new WebComponentEnsurer(component);

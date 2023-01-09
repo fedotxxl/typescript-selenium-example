@@ -28,7 +28,7 @@ export class WebComponent {
   }
 }
 
-export class Button extends WebComponent {
+export class ButtonComp extends WebComponent {
   constructor(element: WebElementPromise, selector: string) {
     super(element, selector);
   }

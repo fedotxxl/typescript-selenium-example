@@ -1,4 +1,4 @@
-import { TextInput, Button, Browser, Page, findBy, elementIsPresent, pageHasLoaded } from '../lib';
+import { TextInput, ButtonComp, Browser, Page, findBy, elementIsPresent, pageHasLoaded } from '../lib';
 import { HomePage } from './';
 
 export class FacebookSignInPage extends Page {
@@ -13,7 +13,7 @@ export class FacebookSignInPage extends Page {
   public Password: TextInput;
 
   @findBy('#loginbutton')
-  public Confirm: Button;
+  public Confirm: ButtonComp;
 
   public loadCondition() {
     return elementIsPresent(() => this.Email);

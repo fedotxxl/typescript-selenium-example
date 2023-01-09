@@ -1,4 +1,4 @@
-import { TextInput, Button, Browser, Page, findBy, elementIsVisible, pageHasLoaded } from '../lib';
+import { TextInput, ButtonComp, Browser, Page, findBy, elementIsVisible, pageHasLoaded } from '../lib';
 import { HomePage } from './';
 import config from '../config';
 
@@ -11,13 +11,13 @@ export class GoogleSignInPage extends Page {
   public Email: TextInput;
 
   @findBy('#identifierNext')
-  public ConfirmEmail: Button;
+  public ConfirmEmail: ButtonComp;
 
   @findBy('input[type="password"]')
   public Password: TextInput;
 
   @findBy('#passwordNext')
-  public ConfirmPassword: Button;
+  public ConfirmPassword: ButtonComp;
 
   public loadCondition() {
     return elementIsVisible(() => this.Email);

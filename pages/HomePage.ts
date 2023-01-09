@@ -1,4 +1,4 @@
-import { WebComponent, Browser, Page, findBy, Button, TextInput, elementIsVisible, pageHasLoaded } from '../lib';
+import { WebComponent, Browser, Page, findBy, ButtonComp, TextInput, elementIsVisible, pageHasLoaded } from '../lib';
 import { ShowIdeaPage, GoogleSignInPage, FacebookSignInPage } from './';
 import config from '../config';
 
@@ -15,19 +15,19 @@ export class HomePage extends Page {
   public IdeaDescription: TextInput;
 
   @findBy('.ui.button.primary')
-  public SubmitIdea: Button;
+  public SubmitIdea: ButtonComp;
 
   @findBy('.signin')
   public UserMenu: WebComponent;
 
   @findBy('.fdr-profile-popup .button.google')
-  public GoogleSignIn: Button;
+  public GoogleSignIn: ButtonComp;
 
   @findBy('.fdr-profile-popup .button.facebook')
-  public FacebookSignIn: Button;
+  public FacebookSignIn: ButtonComp;
 
   @findBy('.signout')
-  private SignOut: Button;
+  private SignOut: ButtonComp;
 
   public loadCondition() {
     return elementIsVisible(() => this.IdeaTitle);

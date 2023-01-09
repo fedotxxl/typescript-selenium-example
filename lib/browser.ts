@@ -1,5 +1,5 @@
 import 'chromedriver';
-import { Builder, ThenableWebDriver, WebElement, By, WebElementPromise } from 'selenium-webdriver';
+import {Builder, ThenableWebDriver, WebElement, By, WebElementPromise, Locator} from 'selenium-webdriver';
 import { Page, NewablePage, WebComponent, WaitCondition } from './';
 
 export class Browser {
@@ -12,8 +12,8 @@ export class Browser {
     await this.driver.navigate().to(url);
   }
 
-  public findElement(selector: string): WebElementPromise {
-    return this.driver.findElement(By.css(selector));
+  public findElement(locator: Locator): WebElementPromise {
+    return this.driver.findElement(locator);
   }
 
   public async clearCookies(url?: string): Promise<void> {
