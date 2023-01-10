@@ -9,9 +9,8 @@ export function findBy(
     selector: string,
     config?: {
         by?: (selector: string) => By,
-        react?: string,
     }
-    ) {
+) {
     return (target: any, propertyKey: string) => {
         const type = Reflect.getMetadata('design:type', target, propertyKey);
         Object.defineProperty(target, propertyKey, {
@@ -25,4 +24,12 @@ export function findBy(
             },
         });
     };
+}
+
+export function findByTestId(selector: string) {
+    return findBy(selector, {by: ByTestId})
+}
+
+export function ByTestId(testId: string): By {
+    return By.css("[data-testid=" + testId + "]")
 }

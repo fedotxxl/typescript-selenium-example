@@ -1,13 +1,13 @@
-import {when} from "../lib/mocha-bdd";
 import {Browser, ensure} from "../lib";
 import {LoginPage} from "./LoginPage";
-import {then} from "../lib/mocha-simple";
+import {then, when} from "../lib/mocha-simple";
 
 describe('Logic test', () => {
     const browser = new Browser('chrome');
-    const page = new LoginPage(browser);
 
     it('should display error message on invalid phone number', async () => {
+        const page = new LoginPage(browser);
+
         // before
         await page.navigate();
 
@@ -22,6 +22,8 @@ describe('Logic test', () => {
     });
 
     it('Test Case #2: Unauthenticated cannot submit ideas', async () => {
+        const page = new LoginPage(browser);
+
         // before
         await page.navigate();
 
@@ -31,7 +33,7 @@ describe('Logic test', () => {
         })
 
         await then('error message is displayed', async () => {
-            await ensure(page.form$.input$).textIs('Darth Vader');
+            await ensure(page.form$.input$).textIs('Россия\n+7');
         });
     });
 

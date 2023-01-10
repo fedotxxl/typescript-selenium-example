@@ -7,6 +7,9 @@ export class LoginPage extends Page {
     @findBy('form')
     form$: LoginForm;
 
+    // @findBy('[data-testid=LoginFormContent]')
+    // form$: LoginForm;
+
     constructor(browser: Browser) {
         super(browser);
         this.setUrl(`${config.baseUrl}/login`);
